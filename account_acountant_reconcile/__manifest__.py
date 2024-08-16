@@ -1,0 +1,16 @@
+{
+    "name": "Account Accountant Reconcile",
+    "summary": """
+        Reconcile invoices with matching amount and reference.
+    """,
+    "author": "Mint System GmbH, Odoo Community Association (OCA)",
+    "website": "https://www.mint-system.ch",
+    "category": "Invoicing",
+    "version": "16.0.1.0.0",
+    "license": "OPL-1",
+    "depends": ["account_accountant"],
+    "installable": True,
+    "application": False,
+    "auto_install": False,
+    "images": ["images/screen.png"],
+}
