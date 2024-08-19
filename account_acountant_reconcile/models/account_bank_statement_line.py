@@ -2,7 +2,7 @@ import logging
 
 from dateutil.relativedelta import relativedelta
 
-from odoo import models
+from odoo import models, fields
 
 _logger = logging.getLogger(__name__)
 
