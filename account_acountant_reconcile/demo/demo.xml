@@ -1,7 +1,7 @@
 <odoo>
 
     <record id="account_account_0" model="account.account">
-        <field name="company_id" ref="l10n_ch.demo_company_ch"/>
+        <field name="company_id" ref="l10n_ch.demo_company_ch" />
         <field name="code">1025</field>
         <field name="name">Bank2</field>
         <field name="account_type">asset_cash</field>
@@ -9,10 +9,11 @@
     </record>
 
     <record id="account_journal_0" model="account.journal">
-        <field name="company_id" ref="l10n_ch.demo_company_ch"/>
+        <field name="company_id" ref="l10n_ch.demo_company_ch" />
         <field name="name">Bank2</field>
         <field name="code">BNK2</field>
         <field name="type">bank</field>
+        <field name="bank_account_id" ref="l10n_ch.partner_demo_company_bank_account" />
         <field name="currency_id" ref="base.CHF" />
         <field name="default_account_id" ref="account_account_0" />
     </record>
@@ -21,7 +22,10 @@
         <field name="journal_id" ref="account_journal_0" />
         <field name="payment_ref">000000000000000002024000016</field>
         <field name="amount">31750</field>
-        <field name="date" eval="(DateTime.now() + relativedelta(days=+1)).strftime('%Y-%m-%d')"/>
+        <field
+            name="date"
+            eval="(DateTime.now() + relativedelta(days=+1)).strftime('%Y-%m-%d')"
+        />
         <field name="partner_id" ref="base.res_partner_2" />
     </record>
 
@@ -29,7 +33,10 @@
         <field name="journal_id" ref="account_journal_0" />
         <field name="payment_ref">000000000000000002024000024</field>
         <field name="amount">41750</field>
-        <field name="date" eval="(DateTime.now() + relativedelta(days=+2)).strftime('%Y-%m-%d')"/>
+        <field
+            name="date"
+            eval="(DateTime.now() + relativedelta(days=+2)).strftime('%Y-%m-%d')"
+        />
         <field name="partner_id" ref="base.res_partner_3" />
     </record>
 
@@ -37,7 +44,10 @@
         <field name="journal_id" ref="account_journal_0" />
         <field name="payment_ref">000000000000000002024000032</field>
         <field name="amount">19250</field>
-        <field name="date" eval="(DateTime.now() + relativedelta(days=+1)).strftime('%Y-%m-%d')"/>
+        <field
+            name="date"
+            eval="(DateTime.now() + relativedelta(days=+1)).strftime('%Y-%m-%d')"
+        />
         <field name="partner_id" ref="base.res_partner_3" />
     </record>
 
@@ -45,7 +55,10 @@
         <field name="journal_id" ref="account_journal_0" />
         <field name="payment_ref">000000000000000002024000048</field>
         <field name="amount">31750</field>
-        <field name="date" eval="(DateTime.now() + relativedelta(days=+2)).strftime('%Y-%m-%d')"/>
+        <field
+            name="date"
+            eval="(DateTime.now() + relativedelta(days=+2)).strftime('%Y-%m-%d')"
+        />
         <field name="partner_id" ref="base.res_partner_3" />
     </record>
 
