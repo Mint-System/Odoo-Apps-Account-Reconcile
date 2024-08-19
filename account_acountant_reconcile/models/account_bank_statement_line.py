@@ -27,20 +27,23 @@ class AccountBankStatementLine(models.Model):
             ]
         )
 
+        # Get all unreconciled invoice lines
+        unreconciled_lines = self.env["account.move.line"].search(
+            [
+                ("reconciled", "=", False),
+                ("move_type", "=", "out_invoice"),
+            ]
+        )
+
         for st_line_id in st_line_ids:
 
             # Get payment reference and amount
             payment_ref = st_line_id.payment_ref
             amount = st_line_id.amount
 
-            # Find reconciled invoice line by reference and amount
-            matching_lines = self.env["account.move.line"].search(
-                [
-                    ("amount_residual", "=", amount),
-                    ("name", "=", payment_ref),
-                    ("reconciled", "=", False),
-                    ("move_type", "=", "out_invoice"),
-                ]
+            # Find invoice line by reference and amount
+            matching_lines = unreconciled_lines.filtered(
+                lambda l: l.name == payment_ref and l.amount_residual == amount
             )
 
             # _logger.warning([st_line_id, payment_ref, amount, matching_lines])
