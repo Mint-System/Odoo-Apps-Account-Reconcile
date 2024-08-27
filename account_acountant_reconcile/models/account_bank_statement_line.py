@@ -31,7 +31,8 @@ class AccountBankStatementLine(models.Model):
         unreconciled_lines = self.env["account.move.line"].search(
             [
                 ("reconciled", "=", False),
-                ("move_type", "=", "out_invoice"),
+                ("parent_state", "=", "posted"),
+                ("is_account_reconcile", "=", True),
             ]
         )
 
