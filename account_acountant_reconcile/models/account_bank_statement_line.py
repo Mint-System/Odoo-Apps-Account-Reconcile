@@ -11,9 +11,9 @@ class AccountBankStatementLine(models.Model):
     _inherit = "account.bank.statement.line"
 
     def _cron_try_auto_reconcile_statement_lines(self, batch_size=None, limit_time=0):
-        super(AccountBankStatementLine, self)._cron_try_auto_reconcile_statement_lines(
-            batch_size=batch_size, limit_time=limit_time
-        )
+        """
+        OVERWRITE: Replace the reconcilation method. Reconcile only based on amount and reference.
+        """
 
         # Get all unreconciled bank statement lines
         st_line_ids = self.search(
