@@ -1,6 +1,6 @@
 - Select company "CH Company"
 - Open the accounting app
-- Open customer invoices and undo the reconcilation
+- Undo the reconcilation on "Bank2" and remove the statement entries
 - Click on import bank statements in the "Bank2" card
 - Import the `camt_053_minimal_CHF.xml` file from the tests folder
 - Check if the import statements have been reconciled
