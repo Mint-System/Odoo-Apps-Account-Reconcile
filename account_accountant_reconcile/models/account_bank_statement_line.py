@@ -37,7 +37,6 @@ class AccountBankStatementLine(models.Model):
         )
 
         for st_line_id in st_line_ids:
-
             # Get payment reference and amount
             payment_ref = st_line_id.payment_ref
             amount = st_line_id.amount
@@ -47,28 +46,28 @@ class AccountBankStatementLine(models.Model):
                 lambda l: l.name == payment_ref and l.amount_residual == amount
             )
 
-            # _logger.warning([st_line_id, payment_ref, amount, matching_lines])
-
-            # If only one invoice lines is found reconcile it
+            # If only one invoice line is found, reconcile it
             if len(matching_lines) == 1:
                 invoice_line = matching_lines[0]
 
-                # Update the bank line of the bank statement post
-                bank_line = st_line_id.line_ids.filtered(lambda l: l.debit > 0)
-                if bank_line:
-                    bank_line.write({"partner_id": invoice_line.partner_id.id})
+                # Get the bank line
+                bank_line = st_line_id.line_ids.filtered(lambda r: r.account_id.account_type == "asset_cash")
 
-                # Update the suspense line of the bank statement post
-                suspense_line = st_line_id.line_ids.filtered(lambda l: l.credit > 0)
-                if suspense_line:
-                    suspense_line.write(
-                        {
-                            "partner_id": invoice_line.partner_id.id,
-                            "account_id": invoice_line.account_id.id,
-                        }
-                    )
+                # Ensure partner matches the invoice partner
+                bank_line.write({"partner_id": invoice_line.partner_id.id})
 
-                    # Reconcile the suspense and invoice lien
-                    lines = suspense_line + invoice_line
-                    lines.reconcile()
-                    _logger.debug("Reconciled lines: %s", lines)
+                # Suspense line is the other line of the statement
+                suspense_line = st_line_id.line_ids - bank_line
+
+                # Ensure partner and account match the invoice line
+                suspense_line.write(
+                    {
+                        "partner_id": invoice_line.partner_id.id,
+                        "account_id": invoice_line.account_id.id,
+                    }
+                )
+
+                # Reconcile the suspense and invoice line
+                lines = suspense_line + invoice_line
+                lines.reconcile()
+                _logger.debug("Reconciled lines: %s", lines)

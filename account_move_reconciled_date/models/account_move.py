@@ -14,12 +14,8 @@ class AccountMove(models.Model):
     def _compute_reconcile_date(self):
         for move in self:
             # Get move lines that are reconciled
-            move_lines = self.env["account.move.line"].browse(
-                move.line_ids._reconciled_lines()
-            )
+            move_lines = self.env["account.move.line"].browse(move.line_ids._reconciled_lines())
             # Only check move lines for the bank journal
-            move_lines = move_lines.filtered(
-                lambda line: line.journal_id.type == "bank"
-            )
+            move_lines = move_lines.filtered(lambda line: line.journal_id.type == "bank")
             if move_lines:
                 move.reconcile_date = max(move_lines.mapped("date"))
