@@ -1,7 +1,7 @@
 {
     "name": "Account Move Reconciled Date",
     "summary": """
-        Show latest reconsiliation date of account move.
+        Show latest payment and reconcilation date of account move.
     """,
     "author": "Mint System GmbH",
     "website": "https://www.mint-system.ch/",
