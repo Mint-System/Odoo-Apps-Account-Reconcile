@@ -13,5 +13,5 @@ git clone git@github.com:Mint-System/Odoo-Apps-Account-Reconcile.git ./addons/ac
 ## Available modules
 
 | Module | Summary |
-| ------ | ------- |
-|        |         |
+| --- | --- |
+| [account_move_reconciled_date](account_move_reconciled_date) |         Show latest payment and reconcilation date of account move. |

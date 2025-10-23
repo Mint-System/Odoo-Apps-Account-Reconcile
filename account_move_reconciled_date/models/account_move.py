@@ -11,7 +11,7 @@ class AccountMove(models.Model):
     payment_date = fields.Date(compute="_compute_payment_date", store=True)
     reconcile_date = fields.Date(compute="_compute_payment_date", store=True)
 
-    @api.depends("payment_state")
+    @api.depends("status_in_payment")
     def _compute_payment_date(self):
         for move in self:
             # Get move lines that are reconciled

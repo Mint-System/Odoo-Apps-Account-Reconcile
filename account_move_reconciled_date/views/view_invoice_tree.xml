@@ -5,7 +5,7 @@
         <field name="model">account.move</field>
         <field name="inherit_id" ref="account.view_invoice_tree" />
         <field name="arch" type="xml">
-            <field name="payment_state" position="after">
+            <field name="status_in_payment" position="after">
                 <field name="payment_date" optional="hide" />
                 <field name="reconcile_date" optional="hide" />
             </field>
