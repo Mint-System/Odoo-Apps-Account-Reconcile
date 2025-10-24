@@ -14,4 +14,5 @@ git clone git@github.com:Mint-System/Odoo-Apps-Account-Reconcile.git ./addons/ac
 
 | Module | Summary |
 | --- | --- |
+| [account_accountant_reconcile](account_accountant_reconcile) |         Reconcile invoices with matching amount and reference. |
 | [account_move_reconciled_date](account_move_reconciled_date) |         Show latest payment and reconcilation date of account move. |
