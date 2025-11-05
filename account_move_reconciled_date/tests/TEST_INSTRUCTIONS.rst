@@ -1,0 +1,5 @@
+- Install accountant module
+- Open bank transactions
+- Reconcile RE/2025/00002
+- Go to customer invoices and show payment and reconcile date columns
+-

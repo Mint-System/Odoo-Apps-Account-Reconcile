@@ -1,0 +1,33 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* account_move_reconciled_date
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-10-23 14:08+0000\n"
+"PO-Revision-Date: 2025-10-23 14:08+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: account_move_reconciled_date
+#: model:ir.model,name:account_move_reconciled_date.model_account_move
+msgid "Journal Entry"
+msgstr "Journalbuchung"
+
+#. module: account_move_reconciled_date
+#: model:ir.model.fields,field_description:account_move_reconciled_date.field_account_bank_statement_line__payment_date
+#: model:ir.model.fields,field_description:account_move_reconciled_date.field_account_move__payment_date
+msgid "Payment Date"
+msgstr "Zahlungsdatum"
+
+#. module: account_move_reconciled_date
+#: model:ir.model.fields,field_description:account_move_reconciled_date.field_account_bank_statement_line__reconcile_date
+#: model:ir.model.fields,field_description:account_move_reconciled_date.field_account_move__reconcile_date
+msgid "Reconcile Date"
+msgstr "Abstimmungsdatum"
