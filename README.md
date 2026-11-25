@@ -1,18 +1,17 @@
-# Odoo Apps: Account Invoicing
+# Odoo Apps: Account Reconcile
 
-Collection of account and invoicing model related modules.
+Odoo modules extending the `account` module.
 
 ## Usage
 
-Clone module into Odoo addon directory.
+Clone this repo into the Odoo addons directory.
 
 ```bash
-git clone git@github.com:mint-system/odoo-apps-account-invoicing.git ./addons/account_invoicing
+git clone git@github.com:Mint-System/Odoo-Apps-Account-Reconcile.git ./addons/account_reconcile
 ```
 
 ## Available modules
 
 | Module | Summary |
-| --- | --- |
-| [account_accountant_reconcile](account_accountant_reconcile) |         Reconcile invoices with matching amount and reference. |
-| [account_move_reconciled_date](account_move_reconciled_date) |         Show latest reconsiliation date of account move. |
+| ------ | ------- |
+|        |         |
